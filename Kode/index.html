@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SORTY</title>
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-div" >
+        <div id="second-div"> 
+            <h1 class="text-pop-up-top">SORTY</h1>
+            <h3 class="text-focus-in">SPAR TIDEN MED <span>SORTY</span></h3>
+            <input id="listu" type="text" placeholder="Din indkøbsliste (sæt , mellem produkterne)"><br>
+            <button id="sortBtn"><span id="sorterBtn">SORTER</span></button>
+            <div id="svarDiv">
+                <h2 style="color:black; margin-bottom: 2%; font-size: 160%;">Din Sorteret Indkøbsliste</h2>
+                <span class="svar"></span>
+            </div>
+        </div>
+
+        <section id="about-us">
+            <div id="omSortyDiv">
+                <h2 style="margin-bottom: 0%;">Om Sorty</h2>
+                <p style="font-size: 110%;"><span style="font-weight: 600; font-size: 120%;">Sorty forbedre din indkøbsoplevelse med AI!</span> <br>
+                    Sorty sortere din indkøbsliste med den nyeste AI teknologi, afhængig af varens lokation i butikken. 
+                    Sådan spare du tid, og ikke behæver gå frem og tilbage efter varene. <p>
+            </div>
+
+        </section>
+
+        <section id="registered-companies">
+            <div>
+                <h2>Tilmeldte Virksomheder</h2> 
+                <img src="https://www.brandebladet.dk/sites/default/files/styles/full_image_12_col/public/artikler/netto-logo.png?itok=QgGUR3_r" class="img" style="height: 100px;">
+                <img src="spar.svg" class="img" style="height: 100px;">
+                <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t39.30808-6/376405587_690231816486006_709141060563544584_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=s1Hdf7M5_5IQ7kNvgHQmxc3&_nc_ht=scontent-cph2-1.xx&oh=00_AYAe-dwiOmDp3CoCM_vkqeN1bW4WKu9GCj2VM7Q3Hoy5XQ&oe=6648DE28" class="img" style="height: 100px;">
+                <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t39.30808-6/386307461_709017324603809_6503458294126746421_n.png?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-u0YZHQzBE4Q7kNvgG_bZ_l&_nc_ht=scontent-cph2-1.xx&oh=00_AYAWh2JXw8hFTAha49dTn0wnyEonxNMhtm0j1K0EXX2goQ&oe=6648E28E" class="img"  style="height: 100px;">
+            </div>
+            
+            
+        </section>
+
+        <section id="reviews">
+            <div class="imgDiv">
+                <h2>Anmeldelser</h2>
+                <img src="Honey.png" width="400px" clas="imgAnd">
+                <img src="karla.png" width="400px%" clas="imgAnd">
+                <img src="pratap.png" width="400px%" clas="imgAnd">
+                <img src="jonas.png" width="400px%" clas="imgAnd">
+                <img src="daniel.png" width="400px%" clas="imgAnd">
+            </div>
+            
+            
+        </section>
+        
+    </div>
+</body>
+
+
+<script>
+    document.querySelector('#svarDiv').style.display = 'none';
+    var input = document.getElementById("listu");
+    var button = document.getElementById("sortBtn");
+
+    function visListe(listen){
+        console.log("Sorteret-Liste: ",listen)
+        document.querySelector(".svar").innerText = listen;
+        document.querySelector('#svarDiv').style.display = 'block';
+    }
+
+    function apiAI(items){ //function til API call
+        const url = "https://openrouter.ai/api/v1/chat/completions";
+        const apiKey = "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";
+        var rækkefølge = "Alt Frugt, ALT Grøntsager, BRØD, KAGER, KIKS, ALT DRIKKEVARER, SYLTETØJ, ALT PÅLÆG, ALT DER TILHØRE MEJERIVARER"
+        var sparRækkefølge = "FÆRDIGRETTER, ALT FRUGT, ALT GRØNTSAGER, ALT ØKOLOGISK, MEXEKANSK, ASIATISKE VARER, RIS, PASTA, MORGENMAD, KRYDDERIER, KONSERVERTIV, DRESSING, BRØD, RISKIKS, KIKS, BLE, BABYMAD, BADEVÆRELSE, RENGØRING, SYLTETØJ, PÅLÆG, KAFEE, TE, MEL, SUKKER, SUKKERFRI, SODAVAND, JUICE, ØL, FISK, OST, ALT MEJERI VARER, ALT FRESKBAGT BRØD OG KAGER, ALT SLIK, MAGAZINER
+        var items = items;
+        var prompt = `Du er ansat i en supermarked, hvor du skal sortere en liste af produkter. Listen skal sorteres i denne række følge: frugt, grøntsager, brød, kager, kiks, drikkevarer, syltetøj, pålæg, mejerivarer. Det betyder at alt frugt i listen skal stå øverst og alt mejerivarer i listen skal stå nederest, og alt andet skal stå i det rigtige rækkefølge. Du skal give mig listen sorteret. Reglerne er følgende: 1. Du skal sortere ALLE produkter i den usorteret liste. 2. Der skal være komma mellem produkterne. 3. Du skal KUN skrive produkterne i den sorteret liste og INTET MERE. Den usorteret liste er: ${items}`;
+        //Du er en ansat i supermarkedet der skal fortælle hvilken produkt tilhøre i hvilken katagori. Katagorierne er frugt, grøntsager, mejerivarer, juice, rengøringsmiddel, dyremad, slik, chips, slik, brød, syltetøj og pålæg. Du skal fortælle mig hvilken katagori ${item} passer i af de katagorier jeg har givet dig. Reglerne er følgende: 1. Du skal kun svare med ET ord 2. Ordet SKAL være den katagori som produktet passer I. 3. Dit svar SKAL være kun lillebogstaver 4. Dit svar må ikke indeholder punktum eller andre tegn.";
+        var data = {
+            model: "openai/gpt-3.5-turbo-0125",
+            messages: [
+            { role: "user", 
+            content: prompt}
+            ],   
+        };
+        
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response var ikke ok (200)');}
+                return response.json();})
+
+            .then(data => visListe(data.choices[0].message.content))
+            .catch(error => console.error('Error:', error));
+        return data
+    }
+
+
+    button.addEventListener("click", function() {
+        var listText = input.value;
+        console.log("Ikke-sorteret Liste: ", listText);
+        apiAI(listText);
+    });
+
+</script>
+</html>

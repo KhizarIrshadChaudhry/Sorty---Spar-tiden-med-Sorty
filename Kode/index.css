@@ -1,0 +1,137 @@
+body {
+    background-color: #E0473F;
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Make sure the body takes the full viewport height */
+    display: flex; /* Use flexbox for centering */
+    
+    
+}
+h1{
+    color: #91951f;
+    font-family: "Outfit", sans-serif;
+    font-size: 600%;
+    margin-bottom: 0%;
+}
+#sorterBtn{
+        font-size: 200%;
+        font-family: "Outfit", sans-serif;
+}
+
+.scale-in-center{-webkit-animation:scale-in-center .4s cubic-bezier(.25,.46,.45,.94) both;animation:scale-in-center .5s cubic-bezier(.25,.46,.45,.94) both}
+ @-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}
+h2{
+    font-family: "Outfit", sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 300%;
+
+}
+p{
+        color: white;
+        font-family: "Outfit", sans-serif;     
+}
+h3{
+    margin: 0%;
+    font-size: 160%;
+    color: #D4DB00      ;
+    font-family: "Outfit", sans-serif;
+    font-style: italic;
+    
+}
+#svarDiv{
+        border-radius: 4px;
+        background-color: white;
+        width: 300px;
+        justify-content: center;
+
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center; 
+        
+
+}
+#omSortyDiv{
+        width: 30%;
+        margin: 0%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center; 
+}
+#main-div{
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center; 
+        
+}
+.imgDiv{
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+}
+.svar{
+        font-family: "Outfit", sans-serif;
+}
+input{
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button{
+    background-color: #4CAF50;
+    width: 300px;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+
+
+.text-pop-up-top{-webkit-animation:text-pop-up-top 1s cubic-bezier(.25,.46,.45,.94) both;animation:text-pop-up-top 1s cubic-bezier(.25,.46,.45,.94) both}
+@-webkit-keyframes text-pop-up-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: none;
+    }
+    100% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: 0 1px 0 #D4DB00, 0 2px 0 #D4DB00, 0 3px 0 #D4DB00, 0 4px 0 #D4DB00, 0 5px 0 #D4DB00, 0 6px 0 #D4DB00, 0 7px 0 #D4DB00, 0 8px 0 #D4DB00, 0 9px 0 #D4DB00, 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+  @keyframes text-pop-up-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: none;
+    }
+    100% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      text-shadow: 0 1px 0 #D4DB00, 0 2px 0 #D4DB00, 0 3px 0 #D4DB00, 0 4px 0 #D4DB00, 0 5px 0 #D4DB00, 0 6px 0 #D4DB00, 0 7px 0 #D4DB00, 0 8px 0 #D4DB00, 0 9px 0 #D4DB00, 0 50px 30px rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+
+
